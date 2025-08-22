@@ -1,0 +1,16 @@
+workflows:
+  build-windows:
+    name: Build Flutter for Windows
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      os: windows
+    scripts:
+      - name: Install dependencies
+        script: flutter pub get
+
+      - name: Build Windows app
+        script: flutter build windows
+
+    artifacts:
+      - build/windows/runner/Release
