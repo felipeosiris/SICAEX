@@ -246,7 +246,7 @@ class _AttendancePageState extends State<AttendancePage> {
 
     // Agregar encabezados y fusionar celdas
     final titulo = sheet.cell(CellIndex.indexByString("A1"));
-    titulo.value = TextCellValue('Escuela preparatoria oficial No. 42');
+    titulo.value = TextCellValue('Escuela preparatoria oficial No. 26');
     titulo.cellStyle = headerStyle;
     sheet.merge(CellIndex.indexByString("A1"),
         CellIndex.indexByColumnRow(columnIndex: 6, rowIndex: 0));
@@ -560,7 +560,7 @@ class _AttendancePageState extends State<AttendancePage> {
 
     // Agregar encabezados y fusionar celdas
     final titulo = sheet.cell(CellIndex.indexByString("A1"));
-    titulo.value = TextCellValue('Escuela preparatoria oficial No. 42');
+    titulo.value = TextCellValue('Escuela preparatoria oficial No. 26');
     titulo.cellStyle = headerStyle;
     sheet.merge(
         CellIndex.indexByString("A1"),
