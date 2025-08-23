@@ -9,7 +9,7 @@ workflows:
         script: flutter pub get
 
       - name: Build Windows app
-        script: flutter build windows
+        script: flutter build windows --release
 
     artifacts:
       - build/windows/runner/Release
