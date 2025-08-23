@@ -37,14 +37,51 @@ class _StudentsPageState extends State<StudentsPage> {
     final dbFile = File(dbPath);
     if (!await dbFile.exists()) {
       final data = await rootBundle.load('assets/database/mi_base.db');
-      final bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      final bytes =
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await dbFile.writeAsBytes(bytes);
       print('Base de datos copiada a: $dbPath');
     } else {
       print('Usando base existente en: $dbPath');
     }
 
-    return dbFactory.openDatabase(dbPath);
+    final db = await dbFactory.openDatabase(dbPath);
+
+    // Ejecutar migración para agregar columna hora si no existe
+    await _migrateDatabase(db);
+
+    return db;
+  }
+
+  Future<void> _migrateDatabase(Database db) async {
+    try {
+      // Verificar si la columna hora existe
+      final result = await db.rawQuery("PRAGMA table_info(asistencias)");
+      final columnExists = result.any((column) => column['name'] == 'hora');
+
+      if (!columnExists) {
+        // Agregar columna hora si no existe
+        await db.execute('ALTER TABLE asistencias ADD COLUMN hora TEXT');
+        print(
+            'Migración completada: columna hora agregada a la tabla asistencias');
+
+        // Actualizar registros existentes con horas por defecto
+        await db.execute('''
+          UPDATE asistencias 
+          SET hora = CASE 
+              WHEN id % 5 = 0 THEN '08:00:00'
+              WHEN id % 5 = 1 THEN '08:15:00'
+              WHEN id % 5 = 2 THEN '08:30:00'
+              WHEN id % 5 = 3 THEN '08:45:00'
+              WHEN id % 5 = 4 THEN '09:00:00'
+          END
+          WHERE hora IS NULL
+        ''');
+        print('Registros existentes actualizados con horas por defecto');
+      }
+    } catch (e) {
+      print('Error en migración: $e');
+    }
   }
 
   @override
@@ -85,9 +122,12 @@ class _StudentsPageState extends State<StudentsPage> {
         final grado = student['anio_escolar'];
         final semestre = student['semestre'];
 
-        final matchesGrade = selectedGrade == 'Todos' || grado.toString() == selectedGrade;
-        final matchesSemester = selectedSemester == 'Todos' || semestre.toString() == selectedSemester;
-        final matchesSearch = student['nombre'].toLowerCase().contains(searchQuery.toLowerCase());
+        final matchesGrade =
+            selectedGrade == 'Todos' || grado.toString() == selectedGrade;
+        final matchesSemester = selectedSemester == 'Todos' ||
+            semestre.toString() == selectedSemester;
+        final matchesSearch =
+            student['nombre'].toLowerCase().contains(searchQuery.toLowerCase());
 
         return matchesGrade && matchesSemester && matchesSearch;
       }).toList();
@@ -121,7 +161,8 @@ class _StudentsPageState extends State<StudentsPage> {
               alignment: Alignment.center,
               child: Container(
                 margin: marginBottom24,
-                child: Text("Lista de alumnos registrados.", style: subtitleTextStyle),
+                child: Text("Lista de alumnos registrados.",
+                    style: subtitleTextStyle),
               ),
             ),
             Padding(
@@ -227,11 +268,15 @@ class _StudentsPageState extends State<StudentsPage> {
                             final students = entry.value;
 
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 24.0, horizontal: 16.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(groupName, style: Theme.of(context).textTheme.titleLarge),
+                                  Text(groupName,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge),
                                   const SizedBox(height: 12),
                                   ...students.map((student) => ListTile(
                                         title: Text(student['nombre'] ?? ''),
@@ -239,16 +284,24 @@ class _StudentsPageState extends State<StudentsPage> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             IconButton(
-                                              icon: const Icon(Icons.visibility),
+                                              icon:
+                                                  const Icon(Icons.visibility),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PreviewPage(
-                                                      nameArgument: student['nombre'],
-                                                      friendlyNameArgument: student['friendlyName'],
-                                                      gradeArgument: student['anio_escolar'].toString(),
-                                                      groupArgument: student['grupo_nombre'],
+                                                    builder: (context) =>
+                                                        PreviewPage(
+                                                      nameArgument:
+                                                          student['nombre'],
+                                                      friendlyNameArgument:
+                                                          student[
+                                                              'friendlyName'],
+                                                      gradeArgument: student[
+                                                              'anio_escolar']
+                                                          .toString(),
+                                                      groupArgument: student[
+                                                          'grupo_nombre'],
                                                     ),
                                                   ),
                                                 );

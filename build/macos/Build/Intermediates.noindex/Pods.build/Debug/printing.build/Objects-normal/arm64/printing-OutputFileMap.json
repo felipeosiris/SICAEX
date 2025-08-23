@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/printing-master.dia",
+    "emit-module-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/printing-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/printing-master-emit-module.dia",
+    "swift-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/printing-master.swiftdeps"
+  },
+  "/Users/usuario/.pub-cache/hosted/pub.dev/printing-5.14.2/macos/Classes/PrintJob.swift" : {
+    "const-values" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.swiftconstvalues",
+    "dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.d",
+    "diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.o",
+    "llvm-bc" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.bc",
+    "object" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.o",
+    "swift-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob.swiftdeps",
+    "swiftmodule" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintJob~partial.swiftmodule"
+  },
+  "/Users/usuario/.pub-cache/hosted/pub.dev/printing-5.14.2/macos/Classes/PrintingPlugin.swift" : {
+    "const-values" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.swiftconstvalues",
+    "dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.d",
+    "diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.o",
+    "llvm-bc" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.bc",
+    "object" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.o",
+    "swift-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7.swiftdeps",
+    "swiftmodule" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Debug/printing.build/Objects-normal/arm64/PrintingPlugin-f46c75cfca560ef37ea46827ba2324a7~partial.swiftmodule"
+  }
+}

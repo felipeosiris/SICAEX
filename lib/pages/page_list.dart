@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:SICAE/components/components.dart';
 import 'package:SICAE/utils/max_width_extension.dart';
+import 'package:SICAE/utils/database_utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
 final _textController = TextEditingController();
@@ -17,33 +18,22 @@ class ListPage extends StatelessWidget {
   ListPage({super.key});
 
   Future<Database> getDatabase() async {
-    sqfliteFfiInit();
-    final dbFactory = databaseFactoryFfi;
-
-    final appDocDir = await getApplicationDocumentsDirectory();
-    final dbPath = p.join(appDocDir.path, 'mi_base.db');
-
-    final dbFile = File(dbPath);
-    if (!await dbFile.exists()) {
-      final data = await rootBundle.load('assets/database/mi_base.db');
-      final bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-      await dbFile.writeAsBytes(bytes);
-      print('Base de datos copiada a: $dbPath');
-    } else {
-      print('Usando base existente en: $dbPath');
-    }
-
-    return dbFactory.openDatabase(dbPath);
+    return await DatabaseUtils.getDatabase();
   }
 
   Future<void> insertData(int alumnoId) async {
     final db = await getDatabase();
-    final fechaHoy = DateTime.now().toIso8601String().split('T').first;
+    final now = DateTime.now();
+    final fechaHoy = now.toIso8601String().split('T').first;
+    final horaHoy =
+        '${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}:${now.second.toString().padLeft(2, '0')}';
+
     await db.insert(
       'asistencias',
       {
         "alumno_id": alumnoId,
         "fecha": fechaHoy,
+        "hora": horaHoy,
         "presente": 1
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
@@ -129,7 +119,8 @@ class ListPage extends StatelessWidget {
                           border: OutlineInputBorder(),
                         ),
                         onSubmitted: (value) async {
-                          final alumnoId = await getAlumnoIdByName(value.corregirAcentosQR());
+                          final alumnoId = await getAlumnoIdByName(
+                              value.corregirAcentosQR());
 
                           print(value.corregirAcentosQR());
                           print(alumnoId);

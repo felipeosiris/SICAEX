@@ -1,0 +1,1 @@
+ /Users/usuario/Documents/Aplicaciones/SICAEX/.dart_tool/flutter_build/0635b6d3ec02e9c05eaa4ff2aeb79f25/native_assets.json: 

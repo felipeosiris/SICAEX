@@ -10,6 +10,7 @@ CREATE TABLE asistencias (
   id INTEGER PRIMARY KEY,
   alumno_id INTEGER NOT NULL,
   fecha TEXT NOT NULL,          -- Usamos TEXT para fechas en formato 'YYYY-MM-DD'
+  hora TEXT,                    -- Hora de asistencia en formato 'HH:MM:SS'
   presente INTEGER NOT NULL DEFAULT 0, -- 0 = false, 1 = true
   FOREIGN KEY (alumno_id) REFERENCES alumnos(id)
 );
@@ -286,11 +287,11 @@ INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (6, 3, 6, '3Â° AÃ
  INSERT INTO alumnos (id, nombre, grupo_id, friendlyName) VALUES (1, 'AGUILAR NEGRETE YANELI IVONNE', 2, 'AGUILAR NEGRETE YANELI IVONNE');                         
  INSERT INTO alumnos (id, nombre, grupo_id, friendlyName) VALUES (209, 'DIAZ REYES JUAN PABLO', 6, 'DIAZ REYES JUAN PABLO');                                       
  
- INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (1, 123, '2025-04-06', 1);    
- INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (2, 51, '2025-04-06', 1);     
- INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (3, 4, '2025-04-06', 1);      
- INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (4, 1, '2025-04-06', 1);      
- INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (5, 129, '2025-04-06', 1);    
+ INSERT INTO asistencias (id, alumno_id, fecha, hora, presente) VALUES (1, 123, '2025-04-06', '08:30:00', 1);    
+ INSERT INTO asistencias (id, alumno_id, fecha, hora, presente) VALUES (2, 51, '2025-04-06', '08:32:15', 1);     
+ INSERT INTO asistencias (id, alumno_id, fecha, hora, presente) VALUES (3, 4, '2025-04-06', '08:35:22', 1);      
+ INSERT INTO asistencias (id, alumno_id, fecha, hora, presente) VALUES (4, 1, '2025-04-06', '08:28:45', 1);      
+ INSERT INTO asistencias (id, alumno_id, fecha, hora, presente) VALUES (5, 129, '2025-04-06', '08:40:12', 1);    
  INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (6, 67, '2025-04-07', 1);     
  INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (9, 1, '2025-04-07', 1);      
  INSERT INTO asistencias (id, alumno_id, fecha, presente) VALUES (11, 6, '2025-04-13', 1);     

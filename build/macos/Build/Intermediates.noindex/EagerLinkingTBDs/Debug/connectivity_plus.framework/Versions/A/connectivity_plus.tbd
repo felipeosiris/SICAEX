@@ -1,0 +1,111 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s17connectivity_plus22ConnectivityPlusPluginC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC9eventSink33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LLyypSgcSgvg",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC16detachFromEngine3forySo07FlutterE9Registrar_p_tFTq",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC9eventSink33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LLyypSgcSgvM",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvgTq",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC16detachFromEngine3forySo07FlutterE9Registrar_p_tF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC5queue33_DC44086486C9B1E03CB96CC218EB1188LLSo012OS_dispatch_G0Cvpfi",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCMa",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC5startyyF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC9eventSink33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LLyypSgcSgvpfi",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC5startyyFTq",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC9eventSink33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LLyypSgcSgvs",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvgTq",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCMa",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvg",
+            "_connectivity_plusVersionNumber",
+            "_$s17connectivity_plus16ConnectivityTypeO9hashValueSivg",
+            "_$s17connectivity_plus16ConnectivityTypeOMn",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC10statusFrom33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LL0A5TypesSaySSGSayAA0C4TypeOG_tF",
+            "_$s17connectivity_plus16ConnectivityTypeO21__derived_enum_equalsySbAC_ACtFZ",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvsTq",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCAA0eF0AAMc",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC04pathD033_DC44086486C9B1E03CB96CC218EB1188LL7Network06NWPathD0CSgvM",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC4stopyyF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvg",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC0A13UpdateHandler33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LL0A5TypesySayAA0C4TypeOG_tF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCN",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCN",
+            "_$s17connectivity_plus20ConnectivityProviderMp",
+            "_$s17connectivity_plus16ConnectivityTypeOMa",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC04pathD033_DC44086486C9B1E03CB96CC218EB1188LL7Network06NWPathD0CSgvs",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC4stopyyFTq",
+            "_$s17connectivity_plus16ConnectivityTypeO9hashValueSivpMV",
+            "_$s17connectivity_plus16ConnectivityTypeO4hash4intoys6HasherVz_tF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvMTq",
+            "_connectivity_plusVersionString",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCMn",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCAA0eF0AAWP",
+            "_$s17connectivity_plus16ConnectivityTypeOSQAAMc",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCACycfc",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC17pathUpdateHandler33_DC44086486C9B1E03CB96CC218EB1188LL0G0y7Network6NWPathV_tF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC0A8ProviderAcA0cF0_p_tcfC",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCfD",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctFTq",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC07currentE5TypesSayAA0E4TypeOGvpMV",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC0A8ProviderAcA0cF0_p_tcfCTq",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCACycfC",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCMn",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCACycfc",
+            "_$s17connectivity_plus20ConnectivityProviderTL",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A4From33_DC44086486C9B1E03CB96CC218EB1188LL4pathSayAA0E4TypeOG7Network6NWPathV_tF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvpMV",
+            "_$s17connectivity_plus16ConnectivityTypeOSHAAMc",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC0A8ProviderAcA0cF0_p_tcfc",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC06ensurecD033_DC44086486C9B1E03CB96CC218EB1188LL7Network06NWPathD0CyF",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC10statusFrom33_D6FCED2D5D620BC5A1BBE53B5F72CEB9LL0A4TypeSSAA0cR0O_tF",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvM",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctFTq",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC8register4withySo07FlutterE9Registrar_p_tFZ",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvs",
+            "_$s17connectivity_plus22ConnectivityPlusPluginCfD",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvpWvd",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC0A13UpdateHandlerySayAA0E4TypeOGcSgvpfi",
+            "_$s17connectivity_plus22ConnectivityPlusPluginC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tFTq",
+            "_$s17connectivity_plus16ConnectivityTypeON",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderCACycfC",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC04pathD033_DC44086486C9B1E03CB96CC218EB1188LL7Network06NWPathD0CSgvg",
+            "_$s17connectivity_plus31PathMonitorConnectivityProviderC04pathD033_DC44086486C9B1E03CB96CC218EB1188LL7Network06NWPathD0CSgvpfi"
+          ],
+          "objc_class": [
+            "_TtC17connectivity_plus22ConnectivityPlusPlugin",
+            "PodsDummy_connectivity_plus",
+            "_TtC17connectivity_plus31PathMonitorConnectivityProvider"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/connectivity_plus.framework/Versions/A/connectivity_plus"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "11",
+        "target": "arm64-macos"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}
