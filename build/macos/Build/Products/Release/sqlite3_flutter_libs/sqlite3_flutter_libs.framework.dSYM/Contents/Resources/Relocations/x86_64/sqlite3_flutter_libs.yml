@@ -1,0 +1,15 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Products/Release/sqlite3_flutter_libs/sqlite3_flutter_libs.framework/Versions/A/sqlite3_flutter_libs'
+relocations:
+  - { offset: 0xCFC4F, size: 0x8, addend: 0x0, symName: _sqlite3_flutter_libsVersionString, symObjAddr: 0x0, symBinAddr: 0x3A60, symSize: 0x0 }
+  - { offset: 0xCFC84, size: 0x8, addend: 0x0, symName: _sqlite3_flutter_libsVersionNumber, symObjAddr: 0x38, symBinAddr: 0x3A98, symSize: 0x0 }
+  - { offset: 0xCFCC1, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginC8register4withySo0eG9Registrar_p_tFZ', symObjAddr: 0x0, symBinAddr: 0x1260, symSize: 0x10 }
+  - { offset: 0xCFD72, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginCMa', symObjAddr: 0x70, symBinAddr: 0x12D0, symSize: 0x20 }
+  - { offset: 0xCFDBE, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginC8register4withySo0eG9Registrar_p_tFZ', symObjAddr: 0x0, symBinAddr: 0x1260, symSize: 0x10 }
+  - { offset: 0xCFDF2, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginC8register4withySo0eG9Registrar_p_tFZTo', symObjAddr: 0x10, symBinAddr: 0x1270, symSize: 0x10 }
+  - { offset: 0xCFE06, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginCACycfC', symObjAddr: 0x20, symBinAddr: 0x1280, symSize: 0x20 }
+  - { offset: 0xCFE1A, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginCACycfc', symObjAddr: 0x40, symBinAddr: 0x12A0, symSize: 0x30 }
+  - { offset: 0xCFE52, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginCACycfcTo', symObjAddr: 0x90, symBinAddr: 0x12F0, symSize: 0x30 }
+  - { offset: 0xCFE87, size: 0x8, addend: 0x0, symName: '_$s20sqlite3_flutter_libs24Sqlite3FlutterLibsPluginCfD', symObjAddr: 0xC0, symBinAddr: 0x1320, symSize: 0x2B }
+...

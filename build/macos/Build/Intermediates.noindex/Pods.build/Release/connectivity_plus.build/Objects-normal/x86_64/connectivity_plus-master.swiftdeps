@@ -1,0 +1,11 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "26bac165a45ede1e4d33e1f356f7e0d9e71df0208438ed2e9fb9714b69133a28"
+build_start_time: [1756157999, 410568000]
+build_end_time: [1756158017, 594897000]
+inputs:
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/connectivity_plus-6.1.5/macos/connectivity_plus/Sources/connectivity_plus/ConnectivityPlusPlugin.swift"
+  : [1755889579, 582362770]
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/connectivity_plus-6.1.5/macos/connectivity_plus/Sources/connectivity_plus/ConnectivityProvider.swift"
+  : [1755889579, 579775359]
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/connectivity_plus-6.1.5/macos/connectivity_plus/Sources/connectivity_plus/PathMonitorConnectivityProvider.swift"
+  : [1755889579, 581157314]

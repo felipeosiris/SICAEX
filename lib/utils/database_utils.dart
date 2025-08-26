@@ -57,8 +57,100 @@ class DatabaseUtils {
         ''');
         print('Registros existentes actualizados con horas por defecto');
       }
+
+      // Verificar si la columna grupo_letra existe en la tabla grupos
+      final gruposResult = await db.rawQuery("PRAGMA table_info(grupos)");
+      final grupoLetraExists =
+          gruposResult.any((column) => column['name'] == 'grupo_letra');
+
+      if (!grupoLetraExists) {
+        // Agregar columna grupo_letra si no existe
+        await db.execute('ALTER TABLE grupos ADD COLUMN grupo_letra TEXT');
+        print(
+            'Migración completada: columna grupo_letra agregada a la tabla grupos');
+
+        // Actualizar registros existentes con grupo_letra por defecto
+        await db.execute('''
+          UPDATE grupos 
+          SET grupo_letra = 'A'
+          WHERE grupo_letra IS NULL
+        ''');
+        print('Registros existentes actualizados con grupo_letra por defecto');
+      }
+
+      // Verificar si la tabla usuarios existe
+      final tables = await db.rawQuery(
+          "SELECT name FROM sqlite_master WHERE type='table' AND name='usuarios'");
+      if (tables.isEmpty) {
+        // Crear tabla usuarios
+        await db.execute('''
+          CREATE TABLE usuarios (
+            id INTEGER PRIMARY KEY,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            nombre_completo TEXT NOT NULL,
+            rol TEXT NOT NULL DEFAULT 'usuario',
+            activo INTEGER NOT NULL DEFAULT 1,
+            fecha_creacion TEXT NOT NULL DEFAULT (datetime('now')),
+            ultimo_acceso TEXT
+          )
+        ''');
+
+        // Crear índices
+        await db.execute(
+            'CREATE INDEX idx_usuarios_username ON usuarios(username)');
+        await db
+            .execute('CREATE INDEX idx_usuarios_activo ON usuarios(activo)');
+
+        // Insertar usuario administrador por defecto
+        await db.insert('usuarios', {
+          'username': 'admin',
+          'password': 'epo26pass',
+          'nombre_completo': 'Administrador del Sistema',
+          'rol': 'admin',
+          'activo': 1,
+          'fecha_creacion': DateTime.now().toIso8601String(),
+        });
+
+        print('Migración completada: tabla usuarios creada');
+      }
     } catch (e) {
       print('Error en migración: $e');
+    }
+  }
+
+  // Función para autenticar usuarios
+  static Future<Map<String, dynamic>?> authenticateUser(
+      String username, String password) async {
+    try {
+      final db = await getDatabase();
+
+      // Buscar usuario por username y password
+      final result = await db.query(
+        'usuarios',
+        where: 'username = ? AND password = ? AND activo = 1',
+        whereArgs: [username, password],
+        limit: 1,
+      );
+
+      if (result.isNotEmpty) {
+        final user = result.first;
+
+        // Actualizar último acceso
+        await db.update(
+          'usuarios',
+          {'ultimo_acceso': DateTime.now().toIso8601String()},
+          where: 'id = ?',
+          whereArgs: [user['id']],
+        );
+
+        return user;
+      }
+
+      return null;
+    } catch (e) {
+      print('Error en autenticación: $e');
+      return null;
     }
   }
 }

@@ -1,0 +1,6 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "15b8352dd4ee13235c8830dd6c92b669a8c3823007ce6ed8390e335e23c49f36"
+build_start_time: [1756157999, 393172000]
+build_end_time: [1756158017, 408027000]
+inputs:
+  "/Users/usuario/.pub-cache/hosted/pub.dev/file_picker-8.3.7/macos/file_picker/Sources/file_picker/FilePickerPlugin.swift": [1755892980, 93881296]

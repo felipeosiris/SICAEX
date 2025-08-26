@@ -1,0 +1,7 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "21b14e121f1a512c803eb6c6cc3dd7f2143537555defcc0c3999dd845a5be829"
+build_start_time: [1756157997, 789231000]
+build_end_time: [1756158017, 657950000]
+inputs:
+  "/Users/usuario/.pub-cache/hosted/pub.dev/printing-5.14.2/macos/Classes/PrintJob.swift": [1755889579, 513008081]
+  "/Users/usuario/.pub-cache/hosted/pub.dev/printing-5.14.2/macos/Classes/PrintingPlugin.swift": [1755889579, 511188584]

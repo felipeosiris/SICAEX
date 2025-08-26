@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:SICAE/pages/pages.dart';
 import 'package:SICAE/utils/auth_state.dart';
+import 'package:SICAE/utils/database_utils.dart';
 
 class LoginPage extends StatefulWidget {
   static const String name = '/login';
@@ -11,19 +12,60 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordCorrect = true;
+  bool _isLoading = false;
 
-  void _validatePassword() {
-    if (_passwordController.text == 'epo26pass') {
-      setState(() {
-        _isPasswordCorrect = true;
-      });
-      AuthState().login();
-      Navigator.pushReplacementNamed(context, ListPage.name);
-    } else {
+  Future<void> _validatePassword() async {
+    if (_usernameController.text.trim().isEmpty ||
+        _passwordController.text.trim().isEmpty) {
       setState(() {
         _isPasswordCorrect = false;
+      });
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _isPasswordCorrect = true;
+    });
+
+    try {
+      // Intentar autenticar con la base de datos
+      final user = await DatabaseUtils.authenticateUser(
+        _usernameController.text.trim(),
+        _passwordController.text.trim(),
+      );
+
+      if (user != null) {
+        // Usuario autenticado exitosamente
+        setState(() {
+          _isPasswordCorrect = true;
+        });
+        AuthState().login();
+        Navigator.pushReplacementNamed(context, ListPage.name);
+      } else {
+        // Verificar si es la contraseña genérica del admin
+        if (_passwordController.text == 'epo26pass') {
+          setState(() {
+            _isPasswordCorrect = true;
+          });
+          AuthState().login();
+          Navigator.pushReplacementNamed(context, ListPage.name);
+        } else {
+          setState(() {
+            _isPasswordCorrect = false;
+          });
+        }
+      }
+    } catch (e) {
+      setState(() {
+        _isPasswordCorrect = false;
+      });
+    } finally {
+      setState(() {
+        _isLoading = false;
       });
     }
   }
@@ -52,32 +94,54 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
               TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  labelText: 'Usuario',
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.person),
+                ),
+              ),
+              const SizedBox(height: 20),
+              TextField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Contraseña',
                   border: const OutlineInputBorder(),
-                  errorText:
-                      _isPasswordCorrect ? null : 'Contraseña incorrecta',
+                  prefixIcon: const Icon(Icons.lock),
+                  errorText: _isPasswordCorrect
+                      ? null
+                      : 'Usuario o contraseña incorrectos',
                 ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _validatePassword,
+                onPressed: _isLoading ? null : _validatePassword,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.amber, // Color dorado
                   minimumSize: const Size(double.infinity, 50), // Más ancho
                 ),
-                child: const Text('INGRESAR'),
+                child: _isLoading
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.amber),
+                        ),
+                      )
+                    : const Text('INGRESAR'),
               ),
               const SizedBox(height: 50),
               const Text(
-                '*Solicite la contraseña al administrador',
+                '*Ingrese sus credenciales o use la contraseña genérica del administrador',
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.grey,
                   fontStyle: FontStyle.italic,
                 ),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -88,6 +152,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
+    _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }

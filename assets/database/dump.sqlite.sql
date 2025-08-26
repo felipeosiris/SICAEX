@@ -18,15 +18,46 @@ CREATE TABLE grupos (
   id INTEGER PRIMARY KEY,
   anio_escolar INTEGER NOT NULL,
   semestre INTEGER NOT NULL,
+  grupo_letra TEXT,
   nombre TEXT
 );
 
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (1, 1, 1, '1° Año - 1° Semestre');
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (2, 1, 2, '1° Año - 2° Semestre');
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (3, 2, 3, '2° Año - 3° Semestre');
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (4, 2, 4, '2° Año - 4° Semestre');
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (5, 3, 5, '3° Año - 5° Semestre');
-INSERT INTO grupos (id, anio_escolar, semestre, nombre) VALUES (6, 3, 6, '3° Año - 6° Semestre');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (1, 1, 1, 'A', '1° Año - 1° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (2, 1, 2, 'A', '1° Año - 2° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (3, 2, 3, 'A', '2° Año - 3° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (4, 2, 4, 'A', '2° Año - 4° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (5, 3, 5, 'A', '3° Año - 5° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (6, 3, 6, 'A', '3° Año - 6° Semestre - Grupo A');
+
+-- Grupos adicionales para 4° año
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (7, 4, 7, 'A', '4° Año - 7° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (8, 4, 8, 'A', '4° Año - 8° Semestre - Grupo A');
+
+-- Grupos adicionales para 5° año
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (9, 5, 9, 'A', '5° Año - 9° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (10, 5, 10, 'A', '5° Año - 10° Semestre - Grupo A');
+
+-- Grupos adicionales para 6° año
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (11, 6, 11, 'A', '6° Año - 11° Semestre - Grupo A');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (12, 6, 12, 'A', '6° Año - 12° Semestre - Grupo A');
+
+-- Grupos adicionales para 1° año (grupos B, C)
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (13, 1, 1, 'B', '1° Año - 1° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (14, 1, 1, 'C', '1° Año - 1° Semestre - Grupo C');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (15, 1, 2, 'B', '1° Año - 2° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (16, 1, 2, 'C', '1° Año - 2° Semestre - Grupo C');
+
+-- Grupos adicionales para 2° año (grupos B, C)
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (17, 2, 3, 'B', '2° Año - 3° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (18, 2, 3, 'C', '2° Año - 3° Semestre - Grupo C');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (19, 2, 4, 'B', '2° Año - 4° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (20, 2, 4, 'C', '2° Año - 4° Semestre - Grupo C');
+
+-- Grupos adicionales para 3° año (grupos B, C)
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (21, 3, 5, 'B', '3° Año - 5° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (22, 3, 5, 'C', '3° Año - 5° Semestre - Grupo C');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (23, 3, 6, 'B', '3° Año - 6° Semestre - Grupo B');
+INSERT INTO grupos (id, anio_escolar, semestre, grupo_letra, nombre) VALUES (24, 3, 6, 'C', '3° Año - 6° Semestre - Grupo C');
 
 
  INSERT INTO alumnos (id, nombre, grupo_id, friendlyName) VALUES (3, 'BONIFACIO HERRERA KARLA MICHEL', 2, 'BONIFACIO HERRERA KARLA MICHEL');                       

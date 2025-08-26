@@ -1,0 +1,7 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "f17e99588a49316b2ec9e704d4d9987b73c1b239c3ea5c4c04e1820b42e31a5f"
+build_start_time: [1756157997, 785511000]
+build_end_time: [1756158027, 111025000]
+inputs:
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/sqlite3_flutter_libs-0.5.39/darwin/sqlite3_flutter_libs/Sources/sqlite3_flutter_libs/Sqlite3FlutterLibsPlugin.swift"
+  : [1755889579, 70212875]

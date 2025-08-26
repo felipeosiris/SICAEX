@@ -1,0 +1,10 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "1ce12e5c44595ed921ac95fe311ec06ae3f4c5d05c3b2500f788cba2ed7dd772"
+build_start_time: [1756158103, 330543000]
+build_end_time: [1756158117, 10436000]
+inputs:
+  ? "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : !dirty [1756158103, 276656205]
+  "/Users/usuario/Documents/Aplicaciones/SICAEX/macos/Flutter/GeneratedPluginRegistrant.swift": !dirty [1756156777, 93059359]
+  "/Users/usuario/Documents/Aplicaciones/SICAEX/macos/Runner/AppDelegate.swift": !dirty [1755889659, 845362425]
+  "/Users/usuario/Documents/Aplicaciones/SICAEX/macos/Runner/MainFlutterWindow.swift": !dirty [1743620167, 0]

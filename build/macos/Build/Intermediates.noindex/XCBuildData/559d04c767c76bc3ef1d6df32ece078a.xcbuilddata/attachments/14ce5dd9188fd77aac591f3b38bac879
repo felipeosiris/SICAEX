@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master.swiftconstvalues",
+    "dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master.d",
+    "diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master.dia",
+    "emit-module-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master-emit-module.dia",
+    "swift-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/sqlite3_flutter_libs-master.swiftdeps"
+  },
+  "/Users/usuario/.pub-cache/hosted/pub.dev/sqlite3_flutter_libs-0.5.39/darwin/sqlite3_flutter_libs/Sources/sqlite3_flutter_libs/Sqlite3FlutterLibsPlugin.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/Sqlite3FlutterLibsPlugin.o",
+    "llvm-bc" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/Sqlite3FlutterLibsPlugin.bc",
+    "object" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/sqlite3_flutter_libs.build/Objects-normal/arm64/Sqlite3FlutterLibsPlugin.o"
+  }
+}

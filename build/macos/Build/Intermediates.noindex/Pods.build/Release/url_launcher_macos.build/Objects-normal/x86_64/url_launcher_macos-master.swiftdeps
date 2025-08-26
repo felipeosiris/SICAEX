@@ -1,0 +1,9 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "b0034384cfae8f52d63c59299d4d8caec3c79fa4c2a5d7125ea61a3c066bb193"
+build_start_time: [1756157997, 768981000]
+build_end_time: [1756158017, 403035000]
+inputs:
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/url_launcher_macos-3.2.3/macos/url_launcher_macos/Sources/url_launcher_macos/UrlLauncherPlugin.swift"
+  : [1755889579, 253221912]
+  ? "/Users/usuario/.pub-cache/hosted/pub.dev/url_launcher_macos-3.2.3/macos/url_launcher_macos/Sources/url_launcher_macos/messages.g.swift"
+  : [1755889579, 245047220]

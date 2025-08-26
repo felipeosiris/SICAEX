@@ -24,8 +24,10 @@ class _StudentsPageState extends State<StudentsPage> {
   Map<String, List<Map<String, dynamic>>> filteredStudents = {};
   String selectedGrade = 'Todos';
   String selectedSemester = 'Todos';
+  String selectedGroup = 'Todos';
   String searchQuery = '';
   bool isLoading = true;
+  List<Map<String, dynamic>> groups = [];
 
   Future<Database> getDatabase() async {
     sqfliteFfiInit();
@@ -92,10 +94,17 @@ class _StudentsPageState extends State<StudentsPage> {
 
   Future<void> fetchStudents() async {
     final db = await getDatabase();
+
+    // Obtener grupos
+    final groupsResult = await db.query('grupos',
+        orderBy: 'anio_escolar, semestre, grupo_letra');
+
+    // Obtener estudiantes con información de grupo
     final result = await db.rawQuery('''
-      SELECT a.id, a.nombre, a.friendlyName, g.anio_escolar, g.semestre, g.nombre AS grupo_nombre
+      SELECT a.id, a.nombre, a.friendlyName, a.grupo_id, g.anio_escolar, g.semestre, g.grupo_letra, g.nombre AS grupo_nombre
       FROM alumnos a
       JOIN grupos g ON a.grupo_id = g.id
+      ORDER BY g.anio_escolar, g.semestre, g.grupo_letra, a.nombre
     ''');
 
     final Map<String, List<Map<String, dynamic>>> grouped = {};
@@ -109,6 +118,7 @@ class _StudentsPageState extends State<StudentsPage> {
     });
 
     setState(() {
+      groups = groupsResult;
       groupedStudents = grouped;
       filteredStudents = grouped;
       isLoading = false;
@@ -121,15 +131,18 @@ class _StudentsPageState extends State<StudentsPage> {
       final filteredList = students.where((student) {
         final grado = student['anio_escolar'];
         final semestre = student['semestre'];
+        final grupoId = student['grupo_id'];
 
         final matchesGrade =
             selectedGrade == 'Todos' || grado.toString() == selectedGrade;
         final matchesSemester = selectedSemester == 'Todos' ||
             semestre.toString() == selectedSemester;
+        final matchesGroup =
+            selectedGroup == 'Todos' || grupoId.toString() == selectedGroup;
         final matchesSearch =
             student['nombre'].toLowerCase().contains(searchQuery.toLowerCase());
 
-        return matchesGrade && matchesSemester && matchesSearch;
+        return matchesGrade && matchesSemester && matchesGroup && matchesSearch;
       }).toList();
 
       if (filteredList.isNotEmpty) {
@@ -167,73 +180,180 @@ class _StudentsPageState extends State<StudentsPage> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
+              child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.35,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 4.0,
-                            spreadRadius: 2.0,
+                  Row(
+                    children: [
+                      // Filtro por año
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 4.0,
+                                spreadRadius: 2.0,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton<String>(
-                          value: selectedSemester,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedSemester = value!;
-                              applyFilters();
-                            });
-                          },
-                          items: ['Todos', '1', '2', '3', '4', '5', '6']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text('Semestre $value'),
-                            );
-                          }).toList(),
-                          icon: const Icon(Icons.arrow_drop_down),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: selectedGrade,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedGrade = value!;
+                                  applyFilters();
+                                });
+                              },
+                              items: [
+                                const DropdownMenuItem(
+                                  value: 'Todos',
+                                  child: Text('Todos los años'),
+                                ),
+                                ...groups
+                                    .map((group) => DropdownMenuItem(
+                                          value:
+                                              group['anio_escolar'].toString(),
+                                          child: Text(
+                                              '${group['anio_escolar']}° Año'),
+                                        ))
+                                    .toSet()
+                                    .toList(),
+                              ],
+                              icon: const Icon(Icons.arrow_drop_down),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(width: 16),
+                      // Filtro por semestre
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 4.0,
+                                spreadRadius: 2.0,
+                              ),
+                            ],
+                          ),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: selectedSemester,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedSemester = value!;
+                                  applyFilters();
+                                });
+                              },
+                              items: [
+                                const DropdownMenuItem(
+                                  value: 'Todos',
+                                  child: Text('Todos los semestres'),
+                                ),
+                                ...groups
+                                    .map((group) => DropdownMenuItem(
+                                          value: group['semestre'].toString(),
+                                          child: Text(
+                                              '${group['semestre']}° Semestre'),
+                                        ))
+                                    .toSet()
+                                    .toList(),
+                              ],
+                              icon: const Icon(Icons.arrow_drop_down),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      // Filtro por grupo específico
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 4.0,
+                                spreadRadius: 2.0,
+                              ),
+                            ],
+                          ),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: selectedGroup,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedGroup = value!;
+                                  applyFilters();
+                                });
+                              },
+                              items: [
+                                const DropdownMenuItem(
+                                  value: 'Todos',
+                                  child: Text('Todos los grupos'),
+                                ),
+                                ...groups.map((group) => DropdownMenuItem(
+                                      value: group['id'].toString(),
+                                      child: Text(group['nombre'] ??
+                                          '${group['anio_escolar']}° Año - ${group['semestre']}° Semestre'),
+                                    )),
+                              ],
+                              icon: const Icon(Icons.arrow_drop_down),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(10.0),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 4.0,
-                            spreadRadius: 2.0,
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 4.0,
+                                spreadRadius: 2.0,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      child: TextField(
-                        onChanged: (value) {
-                          setState(() {
-                            searchQuery = value;
-                            applyFilters();
-                          });
-                        },
-                        decoration: const InputDecoration(
-                          hintText: 'Buscar por nombre...',
-                          border: InputBorder.none,
+                          child: TextField(
+                            onChanged: (value) {
+                              setState(() {
+                                searchQuery = value;
+                                applyFilters();
+                              });
+                            },
+                            decoration: const InputDecoration(
+                              hintText: 'Buscar por nombre...',
+                              border: InputBorder.none,
+                              prefixIcon: Icon(Icons.search),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),

@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master.swiftconstvalues",
+    "dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master.d",
+    "diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master.dia",
+    "emit-module-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master-emit-module.dia",
+    "swift-dependencies" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/file_picker-master.swiftdeps"
+  },
+  "/Users/usuario/.pub-cache/hosted/pub.dev/file_picker-8.3.7/macos/file_picker/Sources/file_picker/FilePickerPlugin.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release/file_picker.build/Objects-normal/arm64/FilePickerPlugin.o",
+    "llvm-bc" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/FilePickerPlugin.bc",
+    "object" : "/Users/usuario/Documents/Aplicaciones/SICAEX/build/macos/Build/Intermediates.noindex/Pods.build/Release/file_picker.build/Objects-normal/arm64/FilePickerPlugin.o"
+  }
+}
